@@ -17,6 +17,7 @@ const FeedPosts = () => {
       setIsLoading(false);
     }, 2000);
   }, []);
+
   return (
     <Container maxW={"container.sm"} py={10} px={2}>
       {isLoading &&
