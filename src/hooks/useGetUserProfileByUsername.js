@@ -12,7 +12,7 @@ const useGetUserProfileByUsername = (username) => {
   useEffect(() => {
     const getUserProfile = async () => {
       setIsLoading(true);
-      console.log("the username: ", username);
+
       try {
         const q = query(
           collection(firestore, "users"),
@@ -26,7 +26,6 @@ const useGetUserProfileByUsername = (username) => {
           userDoc = doc.data();
         });
         setUserProfile(userDoc);
-        console.log('user doc: ', userDoc);
       } catch (error) {
         showToast("Error", error.message, "error");
       } finally {
