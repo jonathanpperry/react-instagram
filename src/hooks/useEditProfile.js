@@ -6,7 +6,7 @@ import { firestore, storage } from "../firebase/firebase";
 import { doc, updateDoc } from "firebase/firestore";
 import useUserProfileStore from "../store/userProfileStore";
 
-const useEditProfile = (fullName, username, bio) => {
+const useEditProfile = () => {
   const [isUpdating, setIsUpdating] = useState(false);
   const authUser = useAuthStore((state) => state.user);
   const setAuthUser = useAuthStore((state) => state.setUser);
