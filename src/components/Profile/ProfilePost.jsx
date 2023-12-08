@@ -36,9 +36,7 @@ const ProfilePost = ({ post }) => {
   const showToast = useShowToast();
   const [isDeleting, setIsDeleting] = useState();
   const deletePost = usePostStore((state) => state.deletePost);
-  const decrementPostsCount = useUserProfileStore(
-    (state) => state.deletePost
-  );
+  const decrementPostsCount = useUserProfileStore((state) => state.deletePost);
 
   const handleDeletePost = async () => {
     if (!window.confirm("Are you sure you want to delete this post?")) return;
@@ -179,100 +177,13 @@ const ProfilePost = ({ post }) => {
                   maxH={"350px"}
                   overflowY={"auto"}
                 >
-                  <Comment
-                    createdAt="1d ago"
-                    username="asaprogrammer_"
-                    profilePic="/profilepic.png"
-                    text={"Dummy images from unsplash"}
-                  />
-                  <Comment
-                    createdAt="1d ago"
-                    username="asaprogrammer_"
-                    profilePic="/profilepic.png"
-                    text={"Dummy images from unsplash"}
-                  />
-                  <Comment
-                    createdAt="1d ago"
-                    username="asaprogrammer_"
-                    profilePic="/profilepic.png"
-                    text={"Dummy images from unsplash"}
-                  />
-                  <Comment
-                    createdAt="1d ago"
-                    username="asaprogrammer_"
-                    profilePic="/profilepic.png"
-                    text={"Dummy images from unsplash"}
-                  />
-                  <Comment
-                    createdAt="1d ago"
-                    username="abrahmov"
-                    profilePic="https://bit.ly/dan-abramov"
-                    text={"Nice pic"}
-                  />
-                  <Comment
-                    createdAt="3h ago"
-                    username="kentdodds"
-                    profilePic="/https://bit.ly/kent-c-dodds"
-                    text={"Good clone homie!"}
-                  />
-                  <Comment
-                    createdAt="3h ago"
-                    username="kentdodds"
-                    profilePic="/https://bit.ly/kent-c-dodds"
-                    text={"Good clone homie!"}
-                  />
-                  <Comment
-                    createdAt="3h ago"
-                    username="kentdodds"
-                    profilePic="/https://bit.ly/kent-c-dodds"
-                    text={"Good clone homie!"}
-                  />
-                  <Comment
-                    createdAt="3h ago"
-                    username="kentdodds"
-                    profilePic="/https://bit.ly/kent-c-dodds"
-                    text={"Good clone homie!"}
-                  />
-                  <Comment
-                    createdAt="3h ago"
-                    username="kentdodds"
-                    profilePic="/https://bit.ly/kent-c-dodds"
-                    text={"Good clone homie!"}
-                  />
-                  <Comment
-                    createdAt="3h ago"
-                    username="kentdodds"
-                    profilePic="/https://bit.ly/kent-c-dodds"
-                    text={"Good clone homie!"}
-                  />
-                  <Comment
-                    createdAt="3h ago"
-                    username="kentdodds"
-                    profilePic="/https://bit.ly/kent-c-dodds"
-                    text={"Good clone homie!"}
-                  />
-                  <Comment
-                    createdAt="3h ago"
-                    username="kentdodds"
-                    profilePic="/https://bit.ly/kent-c-dodds"
-                    text={"Good clone homie!"}
-                  />
-                  <Comment
-                    createdAt="3h ago"
-                    username="kentdodds"
-                    profilePic="/https://bit.ly/kent-c-dodds"
-                    text={"Good clone homie!"}
-                  />
-                  <Comment
-                    createdAt="3h ago"
-                    username="kentdodds"
-                    profilePic="/https://bit.ly/kent-c-dodds"
-                    text={"Good clone homie!"}
-                  />
+                  {post.comments.map((comment) => (
+                    <Comment key={comment.id} comment={comment} />
+                  ))}
                 </VStack>
                 <Divider my={4} bg={"gray.800"} />
 
-                <PostFooter isProfilePage={true} />
+                <PostFooter isProfilePage={true} post={post} />
               </Flex>
             </Flex>
           </ModalBody>
