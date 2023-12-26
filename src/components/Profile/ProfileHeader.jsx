@@ -12,6 +12,9 @@ import useUserProfileStore from "../../store/userProfileStore";
 import useAuthStore from "../../store/authStore";
 import EditProfile from "./EditProfile";
 import useFollowUser from "../../hooks/useFollowUser";
+import FollowingUsersModal from "../Modals/UserFollowersModal";
+import FollowersCount from "./FollowersCount";
+import FollowingCount from "./FollowingCount";
 
 const ProfileHeader = () => {
   const { userProfile } = useUserProfileStore();
@@ -91,18 +94,10 @@ const ProfileHeader = () => {
             </Text>
             Posts
           </Text>
-          <Text fontSize={{ base: "xs", md: "sm" }}>
-            <Text as="span" fontWeight={"bold"} mr={1}>
-              {userProfile.followers.length}
-            </Text>
-            Followers
-          </Text>
-          <Text fontSize={{ base: "xs", md: "sm" }}>
-            <Text as="span" fontWeight={"bold"} mr={1}>
-              {userProfile.following.length}
-            </Text>
-            Following
-          </Text>
+          {/* Followers Count */}
+          <FollowersCount userProfile={userProfile} />
+          {/* Following Count */} 
+          <FollowingCount userProfile={userProfile} />
         </Flex>
         <Flex alignItems={"center"} gap={4}>
           <Text fontSize={"sm"} fontWeight={"bold"}>
