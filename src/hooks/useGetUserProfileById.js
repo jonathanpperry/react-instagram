@@ -13,8 +13,10 @@ export const useGetUserProfileById = (userId) => {
     const getUserProfile = async () => {
       setIsLoading(true);
       setUserProfile(null);
+
       try {
         const userRef = await getDoc(doc(firestore, "users", userId));
+
         if (userRef.exists()) {
           setUserProfile(userRef.data());
         }

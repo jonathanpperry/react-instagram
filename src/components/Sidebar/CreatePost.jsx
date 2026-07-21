@@ -154,6 +154,9 @@ function useCreatePost() {
     if (!selectedFile) throw new Error("Please select an image");
     setIsLoading(true);
 
+    if (!authUser) throw new Error("User not authenticated");
+    if (!userProfile) throw new Error("User profile still loading");
+
     const newPost = {
       caption: caption,
       likes: [],
